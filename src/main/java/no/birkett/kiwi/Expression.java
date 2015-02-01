@@ -64,5 +64,9 @@ public class Expression {
         }
         return result;
     }
+
+    public final boolean isConstant() {
+        return terms.size() == 0;
+    }
 }
 

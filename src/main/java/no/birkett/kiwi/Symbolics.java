@@ -50,10 +50,27 @@ public class Symbolics {
         return new Expression(terms, expression.getConstant() * coefficient);
     }
 
+    public static Expression multiply(Expression expression1, Expression expression2) throws NonlinearExpressionException {
+        if (expression1.isConstant()) {
+            return multiply(expression1.getConstant(), expression2);
+        } else if (expression2.isConstant()) {
+            return multiply(expression2.getConstant(), expression1);
+        } else {
+            throw new NonlinearExpressionException();
+        }
+    }
+    
     public static Expression divide(Expression expression, double denominator) {
         return multiply(expression, (1.0 / denominator));
     }
 
+    public static Expression divide(Expression expression1, Expression expression2) throws NonlinearExpressionException {
+        if (expression2.isConstant()) {
+            return divide(expression1, expression2.getConstant());
+        } else {
+            throw new NonlinearExpressionException();
+        }
+    }
 
     public static Expression negate(Expression expression) {
         return multiply(expression, -1.0);
