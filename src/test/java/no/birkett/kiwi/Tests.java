@@ -10,36 +10,73 @@ public class Tests {
     private static double EPSILON = 1.0e-8;
 
     @Test
-    public void testKiwi() throws UnsatisfiableConstraintException, DuplicateConstraintException {
+    public void simpleNew() throws UnsatisfiableConstraintException, DuplicateConstraintException {
+        Solver solver = new Solver();
+        Variable x = new Variable("x");
+
+
+        solver.addConstraint(Symbolics.equals(Symbolics.add(x,2), 20));
+
+        solver.updateVariables();
+
+        assertEquals(x.getValue(), 18, EPSILON);
+    }
+    
+    @Test
+    public void simple0() throws UnsatisfiableConstraintException, DuplicateConstraintException {
         Solver solver = new Solver();
         Variable x = new Variable("x");
         Variable y = new Variable("y");
 
+        // x = 20
+        solver.addConstraint(Symbolics.equals(x, 20));
 
-        Term term = new Term(x);
+        // x + 2 == y + 10
+        //
+        solver.addConstraint(Symbolics.equals(Symbolics.add(x,2), Symbolics.add(y, 10)));
 
-        Expression expression = new Expression(term);
-
-        Constraint constraint = new Constraint(expression, RelationalOperator.OP_EQ);
-
-        solver.addConstraint(constraint);
         solver.updateVariables();
+        
+        System.out.println("x " + x.getValue() + " y " + y.getValue());
+
+        assertEquals(y.getValue(), 12, EPSILON);
+        assertEquals(x.getValue(), 20, EPSILON);
     }
     
-    /*@Test
-    public void simple1() {
-        Variable x = new Variable(167);
-        Variable y = new Variable(2);
+    @Test
+    public void simple1() throws DuplicateConstraintException, UnsatisfiableConstraintException {
+        Variable x = new Variable("x");
+        Variable y = new Variable("y");
+        Solver solver = new Solver();
+        solver.addConstraint(Symbolics.equals(x, y));
+        solver.updateVariables();
+        assertEquals(x.getValue(), y.getValue(), EPSILON);
+    }
+
+    @Test
+    public void casso1() throws DuplicateConstraintException, UnsatisfiableConstraintException {
+        Variable x = new Variable("x");
+        Variable y = new Variable("y");
         Solver solver = new Solver();
 
-        Constraint eq = new Constraint(x, Constraint.Operator.EQ, new Expression(y));
-        //ClLinearEquation eq = new ClLinearEquation(x, new ClLinearExpression(y));
-        solver.addConstraint(eq);
-        assertEquals(x.value(), y.value(), EPSILON);
+        solver.addConstraint(Symbolics.lessThanOrEqualTo(x, y));
+        solver.addConstraint(Symbolics.equals(y, Symbolics.add(x, 3.0)));
+        solver.addConstraint(Symbolics.equals(x, 10.0).setStrength(Strength.WEAK));
+        solver.addConstraint(Symbolics.equals(y, 10.0).setStrength(Strength.WEAK));
+
+        solver.updateVariables();
+        
+        if (Math.abs(x.getValue() - 10.0) < EPSILON) {
+            assertEquals(10, x.getValue(), EPSILON);
+            assertEquals(13, y.getValue(), EPSILON);
+        } else {
+            assertEquals(7, x.getValue(), EPSILON);
+            assertEquals(10, y.getValue(), EPSILON);
+        }
     }
 
 
-    @Test
+    /*@Test
     public void addDelete1() {
         Variable x = new Variable("x");
         Solver solver = new Solver();
@@ -112,25 +149,7 @@ public class Tests {
         assertEquals(120, y.value(), EPSILON);
     }
 
-    @Test
-    public void casso1() {
-        Variable x = new Variable("x");
-        Variable y = new Variable("y");
-        Solver solver = new Solver();
 
-        solver.addConstraint(new Constraint(x, Constraint.Operator.LEQ, y));
-        solver.addConstraint(new Constraint(y, Constraint.Operator.EQ, x.plus(3.0)));
-        solver.addConstraint(new Constraint(x, Constraint.Operator.EQ, 10.0, Strength.WEAK));
-        solver.addConstraint(new Constraint(y, Constraint.Operator.EQ, 10.0, Strength.WEAK));
-
-        if (Math.abs(x.getValue() - 10.0) < EPSILON) {
-            assertEquals(10, x.value(), EPSILON);
-            assertEquals(13, y.value(), EPSILON);
-        } else {
-            assertEquals(7, x.value(), EPSILON);
-            assertEquals(10, y.value(), EPSILON);
-        }
-    }
 
     @Test(expected = RequiredFailure.class)
     public void inconsistent1() throws InternalError {

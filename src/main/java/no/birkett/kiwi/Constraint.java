@@ -22,8 +22,8 @@ public class Constraint {
         this.strength = Strength.clip(strength);
     }
 
-    public Constraint(Constraint other, RelationalOperator op) {
-        this(other.expression, other.op, other.strength);
+    public Constraint(Constraint other, double strength) {
+        this(other.expression, other.op, strength);
     }
 
     public Expression getExpression() {
@@ -38,8 +38,9 @@ public class Constraint {
         return strength;
     }
 
-    public void setStrength(double strength) {
+    public Constraint setStrength(double strength) {
         this.strength = strength;
+        return this;
     }
 
     public RelationalOperator getOp() {

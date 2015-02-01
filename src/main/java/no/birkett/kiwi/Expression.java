@@ -36,6 +36,10 @@ public class Expression {
         this.constant = constant;
     }
 
+    public Expression(List<Term> terms) {
+        this(terms, 0);
+    }
+
     public double getConstant() {
         return constant;
     }

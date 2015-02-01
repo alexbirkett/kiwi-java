@@ -14,9 +14,8 @@ public class Variable {
     }
 
     public Variable(double value) {
-
     }
-
+    
     public double getValue() {
         return value;
     }
@@ -25,11 +24,4 @@ public class Variable {
         this.value = value;
     }
 
-    public Expression times(double value) {
-        return null;
-    }
-
-    public Expression plus(double value) {
-        return null;
-    }
 }
