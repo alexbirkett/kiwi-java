@@ -219,7 +219,7 @@ public class Solver {
             if (row.coefficientFor(tag.marker) < 0.0)
                 return tag.marker;
         }
-        if (tag.other.getType() == Symbol.Type.SLACK || tag.other.getType() == Symbol.Type.ERROR) {
+        if (tag.other != null && (tag.other.getType() == Symbol.Type.SLACK || tag.other.getType() == Symbol.Type.ERROR)) {
             if (row.coefficientFor(tag.other) < 0.0)
                 return tag.other;
         }
