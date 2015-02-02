@@ -31,12 +31,11 @@ public class ConstraintParser {
             Expression expression = resolveExpression(matcher.group(3), variableResolver);
             double strength = parseStrength(matcher.group(4));
 
-            new Constraint(Symbolics.subtract(variable, expression), operator);
+            return new Constraint(Symbolics.subtract(variable, expression), operator);
             
         } else {
             throw new RuntimeException("could not parse " +   constraintString);
         }
-        return null;
     }
 
     private static RelationalOperator parseOperator(String operatorString) {
