@@ -63,7 +63,7 @@ public class Row {
         Double existingCoefficient = cells.get(symbol);
 
         if (existingCoefficient != null) {
-            coefficient = existingCoefficient;
+            coefficient += existingCoefficient;
         }
 
         if (Util.nearZero(coefficient)) {
