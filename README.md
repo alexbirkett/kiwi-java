@@ -22,4 +22,16 @@ This project was created by porting [Kiwi](https://github.com/nucleic/kiwi) line
         // x == 20
         // y == 12
 
+## Constraint string format
 
+where A,B has dot, left half is identifier, right is attribute
+
+where C is a constant value (number or mapped value)
+
+where D is a constant value (number or mapped value)
+
+A = B [*/] C [-+] D @ priority
+
+A = B
+
+A = C @ priority
