@@ -15,6 +15,7 @@ public class Symbol {
 
     private Type type;
     private long id;
+    private String variableName;
 
     public Symbol() {
         this(Type.INVALID, 0);
@@ -39,6 +40,14 @@ public class Symbol {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getVariableName() {
+        return variableName;
+    }
+
+    public void setVariableName(String variableName) {
+        this.variableName = variableName;
     }
 
     boolean lessThan(Symbol other) {

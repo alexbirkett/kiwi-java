@@ -41,7 +41,7 @@ public class Symbolics {
     public static Expression multiply(Expression expression, double coefficient) {
 
         List<Term> terms = new ArrayList<Term>();
-        
+
         for (Term term : expression.getTerms()) {
             terms.add(multiply(term, coefficient));
         }

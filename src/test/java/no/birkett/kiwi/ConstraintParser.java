@@ -1,8 +1,6 @@
 package no.birkett.kiwi;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -31,8 +29,7 @@ public class ConstraintParser {
             Expression expression = resolveExpression(matcher.group(3), variableResolver);
             double strength = parseStrength(matcher.group(4));
 
-            return new Constraint(Symbolics.subtract(variable, expression), operator);
-            
+            return new Constraint(Symbolics.subtract(variable, expression), operator, strength);
         } else {
             throw new RuntimeException("could not parse " +   constraintString);
         }
