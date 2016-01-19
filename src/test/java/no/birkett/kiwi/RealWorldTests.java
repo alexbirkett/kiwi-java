@@ -318,10 +318,10 @@ public class RealWorldTests {
         assertEquals(485, nodeHashMap.get("title5").get("top").value(), EPSILON);
 
     }
-
+*/
   
     @Test
-    public void testGridX1000() throws ConstraintNotFound {
+    public void testGridX1000() throws DuplicateConstraintException, UnsatisfiableConstraintException {
 
         long nanoTime = System.nanoTime();
         for (int i = 0; i < 1000; i++) {
@@ -330,6 +330,7 @@ public class RealWorldTests {
         System.out.println("testGridX1000 took " + (System.nanoTime() - nanoTime) / 1000000);
     }
 
+    /*
     @Test
     public void testGridWithEditsX1000() throws CassowaryError {
 
