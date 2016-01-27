@@ -71,6 +71,7 @@ public class Row {
      */
     void insert(Symbol symbol, double coefficient) {
 
+
         //this looks different than c++ code
 //        Double existingCoefficient = cells.get(symbol);
 //
