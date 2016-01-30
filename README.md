@@ -12,6 +12,11 @@ The project was forgotten about until early 2016 when [yonsunCN](https://github.
 
 As of January 2016, the testes ported from [java cassowary project](https://github.com/pybee/cassowary-java) now pass. 
 
+## Contributors
+
+* [Alex Birkett](https://github.com/alexbirkett) Initial port from Kiwi C++
+* [yonsunCN](https://github.com/yongsunCN) Fixed initial port
+
 ## Example usage
 
         Solver solver = new Solver();
