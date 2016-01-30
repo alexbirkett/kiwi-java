@@ -80,7 +80,7 @@ public class Solver {
         optimize(objective);
     }
 
-    void removeConstraint(Constraint constraint) throws UnknownConstraintException, InternalSolverError{
+    public void removeConstraint(Constraint constraint) throws UnknownConstraintException, InternalSolverError{
         Tag tag = cns.get(constraint);
         if(tag == null){
             throw new UnknownConstraintException(constraint);
@@ -271,7 +271,7 @@ public class Solver {
     /**
      * Update the values of the external solver variables.
      */
-    void updateVariables() {
+    public void updateVariables() {
 
         for (Map.Entry<Variable, Symbol> varEntry : vars.entrySet()) {
             Variable variable = varEntry.getKey();
