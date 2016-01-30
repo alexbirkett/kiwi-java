@@ -16,6 +16,7 @@ As of January 2016, the testes ported from [java cassowary project](https://gith
 
 * [Alex Birkett](https://github.com/alexbirkett) Initial port from Kiwi C++
 * [yonsunCN](https://github.com/yongsunCN) Fixed initial port
+* [Sam Twidale](https://github.com/Tw1ddle) Fixed bug in Row.insert() method
 
 ## Example usage
 
