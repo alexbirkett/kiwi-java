@@ -70,29 +70,16 @@ public class Row {
      * is zero, the symbol will be removed from the row
      */
     void insert(Symbol symbol, double coefficient) {
+        Double existingCoefficient = cells.get(symbol);
 
-        //this looks different than c++ code
-//        Double existingCoefficient = cells.get(symbol);
-//
-//        if (existingCoefficient != null) {
-//            coefficient = existingCoefficient;
-//        }
-//
-//        if (Util.nearZero(coefficient)) {
-//            cells.remove(symbol);
-//        } else {
-//            cells.put(symbol, coefficient);
-//        }
-
-        //changes start here
-        Double value = this.cells.get(symbol);
-        if(value == null){
-            this.cells.put(symbol, 0.0);
+        if (existingCoefficient != null) {
+            coefficient += existingCoefficient;
         }
-        double temp = this.cells.get(symbol) + coefficient;
-        this.cells.put(symbol, temp);
-        if(Util.nearZero(temp)){
-            this.cells.remove(symbol);
+
+        if (Util.nearZero(coefficient)) {
+            cells.remove(symbol);
+        } else {
+            cells.put(symbol, Double.valueOf(coefficient));
         }
     }
 
