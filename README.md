@@ -4,6 +4,14 @@ A Java port of the [Kiwi](https://github.com/nucleic/kiwi), a C++ implementation
 ## Background
 This project was created by porting [Kiwi](https://github.com/nucleic/kiwi) line for line to Java. The objective is to create a faster Java implementation of the Cassowary constraint solving algorithm.
 
+## History
+
+The initial porting work was done in a weekend in at the end of January 2015 by Alex Birkett without a deep understanding of the Cassowary algorithm. 
+At that time, the tests ported from the [java cassowary project](https://github.com/pybee/cassowary-java), did not pass. 
+The project was forgotten about until early 2016 when [yonsunCN](https://github.com/yongsunCN) found it and fixed it. 
+
+As of January 2016, the testes ported from [java cassowary project](https://github.com/pybee/cassowary-java) now pass. 
+
 ## Example usage
 
         Solver solver = new Solver();
