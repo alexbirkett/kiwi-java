@@ -298,7 +298,7 @@ public class Symbolics {
     }
 
     public static Constraint lessThanOrEqualTo(Term term, Expression expression) {
-        return lessThanOrEqualTo(expression, term);
+        return lessThanOrEqualTo(new Expression(term), expression);
     }
 
     public static Constraint lessThanOrEqualTo(Term first, Term second) {
@@ -314,7 +314,7 @@ public class Symbolics {
     }
 
     public static Constraint greaterThanOrEqualTo(Term term, Expression expression) {
-        return greaterThanOrEqualTo(expression, term);
+        return greaterThanOrEqualTo(new Expression(term), expression);
     }
 
     public static Constraint greaterThanOrEqualTo(Term first, Term second) {
@@ -347,11 +347,11 @@ public class Symbolics {
     }
 
     public static Constraint lessThanOrEqualTo(Variable variable, Expression expression) {
-        return lessThanOrEqualTo(expression, variable);
+        return lessThanOrEqualTo(new Term(variable), expression);
     }
 
     public static Constraint lessThanOrEqualTo(Variable variable, Term term) {
-        return lessThanOrEqualTo(term, variable);
+        return lessThanOrEqualTo(new Term(variable), term);
     }
 
     public static Constraint lessThanOrEqualTo(Variable first, Variable second) {
@@ -363,7 +363,7 @@ public class Symbolics {
     }
 
     public static Constraint greaterThanOrEqualTo(Variable variable, Expression expression) {
-        return greaterThanOrEqualTo(expression, variable);
+        return greaterThanOrEqualTo(new Term(variable), expression);
     }
 
     public static Constraint greaterThanOrEqualTo(Variable variable, Term term) {
@@ -392,27 +392,23 @@ public class Symbolics {
     }
 
     public static Constraint lessThanOrEqualTo(double constant, Expression expression) {
-        return lessThanOrEqualTo(expression, constant);
+        return lessThanOrEqualTo(new Expression(constant), expression);
     }
 
     public static Constraint lessThanOrEqualTo(double constant, Term term) {
-        return lessThanOrEqualTo(term, constant);
+        return lessThanOrEqualTo(constant, new Expression(term));
     }
 
     public static Constraint lessThanOrEqualTo(double constant, Variable variable) {
-        return lessThanOrEqualTo(variable, constant);
-    }
-
-    public static Constraint greaterThanOrEqualTo(double constant, Expression expression) {
-        return greaterThanOrEqualTo(expression, constant);
+        return lessThanOrEqualTo(constant, new Term(variable));
     }
 
     public static Constraint greaterThanOrEqualTo(double constant, Term term) {
-        return greaterThanOrEqualTo(term, constant);
+        return greaterThanOrEqualTo(new Expression(constant), term);
     }
 
     public static Constraint greaterThanOrEqualTo(double constant, Variable variable) {
-        return greaterThanOrEqualTo(variable, constant);
+        return greaterThanOrEqualTo(constant, new Term(variable));
     }
 
     // Constraint strength modifier
