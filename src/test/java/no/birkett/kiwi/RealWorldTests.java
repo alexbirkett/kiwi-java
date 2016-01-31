@@ -202,7 +202,7 @@ public class RealWorldTests {
     }
 
     @Test
-    public void testGridLayout() throws DuplicateConstraintException, UnsatisfiableConstraintException {
+    public void testGridLayout() throws DuplicateConstraintException, UnsatisfiableConstraintException, NonlinearExpressionException {
 
         final Solver solver = new Solver();
         final HashMap<String, HashMap<String, Variable>> nodeHashMap = new HashMap<>();
@@ -321,7 +321,7 @@ public class RealWorldTests {
 */
   
     @Test
-    public void testGridX1000() throws DuplicateConstraintException, UnsatisfiableConstraintException {
+    public void testGridX1000() throws DuplicateConstraintException, UnsatisfiableConstraintException, NonlinearExpressionException {
 
         long nanoTime = System.nanoTime();
         for (int i = 0; i < 1000; i++) {

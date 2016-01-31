@@ -19,7 +19,7 @@ public class ConstraintParser {
         Expression resolveConstant(String name);
     }
 
-    public static Constraint parseConstraint(String constraintString, CassowaryVariableResolver variableResolver) {
+    public static Constraint parseConstraint(String constraintString, CassowaryVariableResolver variableResolver) throws NonlinearExpressionException {
 
         Matcher matcher = pattern.matcher(constraintString);
         matcher.find();
@@ -63,7 +63,7 @@ public class ConstraintParser {
         return strength;
     }
 
-    public static Expression resolveExpression(String expressionString, CassowaryVariableResolver variableResolver) {
+    public static Expression resolveExpression(String expressionString, CassowaryVariableResolver variableResolver) throws NonlinearExpressionException {
 
         List<String> postFixExpression = infixToPostfix(tokenizeExpression(expressionString));
 

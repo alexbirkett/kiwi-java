@@ -7,7 +7,7 @@ import java.util.HashMap;
  */
 public class Benchmarks {
 
-    public static void testAddingLotsOfConstraints() throws DuplicateConstraintException, UnsatisfiableConstraintException {
+    public static void testAddingLotsOfConstraints() throws DuplicateConstraintException, UnsatisfiableConstraintException, NonlinearExpressionException {
         Solver solver = new Solver();
 
         final HashMap<String, Variable> variables = new HashMap<String, Variable>();
@@ -64,6 +64,8 @@ public class Benchmarks {
         } catch (DuplicateConstraintException e) {
             e.printStackTrace();
         } catch (UnsatisfiableConstraintException e) {
+            e.printStackTrace();
+        } catch (NonlinearExpressionException e) {
             e.printStackTrace();
         }
     }
