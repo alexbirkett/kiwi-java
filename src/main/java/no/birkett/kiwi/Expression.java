@@ -68,5 +68,22 @@ public class Expression {
     public final boolean isConstant() {
         return terms.size() == 0;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("isConstant: " + isConstant() + " constant: " + constant);
+        if (!isConstant()) {
+            sb.append(" terms: [");
+            for (Term term: terms) {
+                sb.append("(");
+                sb.append(term);
+                sb.append(")");
+            }
+            sb.append("] ");
+        }
+        return sb.toString();
+    }
+
 }
 

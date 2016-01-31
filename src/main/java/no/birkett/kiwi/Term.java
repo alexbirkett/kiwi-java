@@ -36,4 +36,9 @@ public class Term {
     public double getValue() {
         return coefficient * variable.getValue();
     }
+
+    @Override
+    public String toString() {
+        return "variable: (" + variable + ") coefficient: "  + coefficient;
+    }
 }

@@ -7,4 +7,7 @@ public class KiwiException extends Exception {
     public KiwiException() {
 
     }
+    public KiwiException(String message) {
+        super(message);
+    }
 }

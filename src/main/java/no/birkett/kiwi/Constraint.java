@@ -73,4 +73,9 @@ public class Constraint {
         this.op = op;
     }
 
+    @Override
+    public String toString() {
+        return "expression: (" + expression + ") strength: " + strength + " operator: " + op;
+    }
+
 }
