@@ -246,6 +246,7 @@ public class Solver {
             if(row.add(-delta) < 0.0){
                 infeasibleRows.add(info.tag.marker);
             }
+			dualOptimize();
             return;
         }
 
@@ -254,6 +255,7 @@ public class Solver {
             if(row.add(delta) < 0.0){
                 infeasibleRows.add(info.tag.other);
             }
+			dualOptimize();
             return;
         }
 
