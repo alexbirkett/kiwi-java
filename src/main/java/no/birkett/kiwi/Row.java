@@ -27,16 +27,6 @@ public class Row {
         this.constant = other.constant;
     }
 
-    public Row deepCopy(){
-        Row result = new Row();
-        result.constant = this.constant;
-        result.cells = new LinkedHashMap<>();
-        for(Symbol s: this.cells.keySet()){
-            result.cells.put(s, this.cells.get(s));
-        }
-        return result;
-    }
-
     public double getConstant() {
         return constant;
     }
