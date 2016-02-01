@@ -37,7 +37,6 @@ public class Solver {
     private List<Symbol> infeasibleRows = new ArrayList<Symbol>();
     private Row objective = new Row();
     private Row artificial;
-    private long idTick = 1;
 
 
     /**
@@ -327,11 +326,11 @@ public class Solver {
             case OP_LE:
             case OP_GE: {
                 double coeff = constraint.getOp() == RelationalOperator.OP_LE ? 1.0 : -1.0;
-                Symbol slack = new Symbol(Symbol.Type.SLACK, idTick++);
+                Symbol slack = new Symbol(Symbol.Type.SLACK);
                 tag.marker = slack;
                 row.insert(slack, coeff);
                 if (constraint.getStrength() < Strength.REQUIRED) {
-                    Symbol error = new Symbol(Symbol.Type.ERROR, idTick++);
+                    Symbol error = new Symbol(Symbol.Type.ERROR);
                     tag.other = error;
                     row.insert(error, -coeff);
                     this.objective.insert(error, constraint.getStrength());
@@ -340,8 +339,8 @@ public class Solver {
             }
             case OP_EQ: {
                 if (constraint.getStrength() < Strength.REQUIRED) {
-                    Symbol errplus = new Symbol(Symbol.Type.ERROR, idTick++);
-                    Symbol errminus = new Symbol(Symbol.Type.ERROR, idTick++);
+                    Symbol errplus = new Symbol(Symbol.Type.ERROR);
+                    Symbol errminus = new Symbol(Symbol.Type.ERROR);
                     tag.marker = errplus;
                     tag.other = errminus;
                     row.insert(errplus, -1.0); // v = eplus - eminus
@@ -349,7 +348,7 @@ public class Solver {
                     this.objective.insert(errplus, constraint.getStrength());
                     this.objective.insert(errminus, constraint.getStrength());
                 } else {
-                    Symbol dummy = new Symbol(Symbol.Type.DUMMY, idTick++);
+                    Symbol dummy = new Symbol(Symbol.Type.DUMMY);
                     tag.marker = dummy;
                     row.insert(dummy);
                 }
@@ -404,7 +403,7 @@ public class Solver {
 
         // Create and add the artificial variable to the tableau
 
-        Symbol art = new Symbol(Symbol.Type.SLACK, idTick++);
+        Symbol art = new Symbol(Symbol.Type.SLACK);
         rows.put(art, new Row(row));
 
         this.artificial = new Row(row);
@@ -638,8 +637,7 @@ public class Solver {
         if (vars.containsKey(variable)) {
             symbol = vars.get(variable);
         } else {
-            symbol = new Symbol(Symbol.Type.EXTERNAL, idTick++);
-            symbol.setVariableName(variable.getName());
+            symbol = new Symbol(Symbol.Type.EXTERNAL);
             vars.put(variable, symbol);
         }
         return symbol;
