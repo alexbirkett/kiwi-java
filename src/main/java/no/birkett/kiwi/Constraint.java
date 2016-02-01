@@ -30,7 +30,7 @@ public class Constraint {
 
     private static Expression reduce(Expression expr){
 
-        Map<Variable, Double> vars = new LinkedHashMap<>();
+        Map<Variable, Double> vars = new HashMap<>();
         for(Term term: expr.getTerms()){
             Double value = vars.get(term.getVariable());
             if(value == null){

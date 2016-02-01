@@ -30,11 +30,11 @@ public class Solver {
         }
     }
 
-    private Map<Constraint, Tag> cns = new LinkedHashMap<Constraint, Tag>();
-    private Map<Symbol, Row> rows = new LinkedHashMap<Symbol, Row>();
-    private Map<Variable, Symbol> vars = new LinkedHashMap<Variable, Symbol>();
-    private Map<Variable, EditInfo> edits = new LinkedHashMap<Variable, EditInfo>();
-    private List<Symbol> infeasibleRows = new ArrayList<Symbol>();
+    private Map<Constraint, Tag> cns = new HashMap<>();
+    private Map<Symbol, Row> rows = new HashMap<>();
+    private Map<Variable, Symbol> vars = new HashMap<>();
+    private Map<Variable, EditInfo> edits = new HashMap<>();
+    private List<Symbol> infeasibleRows = new ArrayList<>();
     private Row objective = new Row();
     private Row artificial;
 

@@ -1,7 +1,7 @@
 package no.birkett.kiwi;
 
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -12,7 +12,7 @@ public class Row {
 
     private double constant;
 
-    private Map<Symbol, Double> cells = new LinkedHashMap<>();
+    private Map<Symbol, Double> cells = new HashMap<>();
 
     public Row() {
         this(0);
@@ -23,7 +23,7 @@ public class Row {
     }
 
     public Row(Row other) {
-        this.cells = new LinkedHashMap<>(other.cells);
+        this.cells = new HashMap<>(other.cells);
         this.constant = other.constant;
     }
 
@@ -144,7 +144,7 @@ public class Row {
     void reverseSign() {
         this.constant = -this.constant;
 
-        Map<Symbol, Double> newCells = new LinkedHashMap<>();
+        Map<Symbol, Double> newCells = new HashMap<>();
         for(Symbol s: cells.keySet()){
             double value = - cells.get(s);
             newCells.put(s, value);
@@ -169,7 +169,7 @@ public class Row {
         cells.remove(symbol);
         this.constant *= coeff;
 
-        HashMap<Symbol, Double> newCells = new LinkedHashMap<>();
+        HashMap<Symbol, Double> newCells = new HashMap<>();
         for(Symbol s: cells.keySet()){
             double value = cells.get(s) * coeff;
             newCells.put(s, value);
