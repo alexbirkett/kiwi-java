@@ -37,5 +37,11 @@ As of January 2016, the testes ported from [java cassowary project](https://gith
         System.out.println("x " + x.getValue() + " y " + y.getValue());
         // x == 20
         // y == 12
+        
+# Links
+* [Kiwi](https://github.com/nucleic/kiwi) 
+* [Java Cassowary](https://github.com/pybee/cassowary-java)
+* [Haxe-Kiwi](https://github.com/Tw1ddle/haxe-kiwi)
+
 
 
