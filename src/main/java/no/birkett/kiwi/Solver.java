@@ -405,9 +405,9 @@ public class Solver {
         // Create and add the artificial variable to the tableau
 
         Symbol art = new Symbol(Symbol.Type.SLACK, idTick++);
-        rows.put(art, row.deepCopy());
+        rows.put(art, new Row(row));
 
-        this.artificial = row.deepCopy();
+        this.artificial = new Row(row);
 
         // Optimize the artificial objective. This is successful
         // only if the artificial objective is optimized to zero.
