@@ -1,4 +1,6 @@
 # kiwi-java
+[![Build Status](https://travis-ci.org/alexbirkett/kiwi-java.svg?branch=master)](https://travis-ci.org/alexbirkett/kiwi-java)
+
 A Java port of the [Kiwi C++](https://github.com/nucleic/kiwi) implementation of the Cassowary constraint solving algorithm
 
 ## Background
