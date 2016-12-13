@@ -44,4 +44,16 @@ As of January 2016, the testes ported from [java cassowary project](https://gith
 * [Haxe-Kiwi](https://github.com/Tw1ddle/haxe-kiwi)
 
 
+## Constraint string format
 
+where A,B has dot, left half is identifier, right is attribute
+
+where C is a constant value (number or mapped value)
+
+where D is a constant value (number or mapped value)
+
+A = B [*/] C [-+] D @ priority
+
+A = B
+
+A = C @ priority
