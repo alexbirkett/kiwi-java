@@ -12,7 +12,7 @@ The initial porting work was done in a weekend in at the end of January 2015 by 
 At that time, the tests ported from the [java cassowary project](https://github.com/pybee/cassowary-java), did not pass. 
 The project was forgotten about until early 2016 when [yonsunCN](https://github.com/yongsunCN) found it and fixed it. 
 
-As of January 2016, the testes ported from [java cassowary project](https://github.com/pybee/cassowary-java) now pass. 
+As of January 2016, the tests ported from [java cassowary project](https://github.com/pybee/cassowary-java) now pass. 
 
 ## Contributors
 
